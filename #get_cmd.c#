@@ -1,19 +1,13 @@
 #include "shell.h"
 /**
  * get_cmd - Function to read command
- * Return: input from user
+ * Return: 0 on success
  */
 char get_cmd(void)
 {
   size_t n = 0;
   char *cmd = NULL;
-  ssize_t read;
   printf("$ ");
   read = getline(&cmd, &n, stdin);
-  if (read == -1)
-    {
-      return (-1);
-    }
-  free(cmd);
-  return (input);
+  return (0);
 }

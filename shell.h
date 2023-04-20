@@ -8,6 +8,6 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-void get_cmd();
+char get_cmd(char *cmd);
 int my_shell(void);
 #endif
