@@ -2,30 +2,38 @@
 /** 
  * tokenize - function that splits the received command to arguments
  * @cmd: input received from get_cmd function
- * Return: 0 if sucess or -1 if fail
+ * Return: tokens
  */
-int tokenize(char *cmd, )
+char **tokenize(char *cmd)
 {
-  char *token = NULL;
+  char **token;
   char *delim = " \t\n";
   size_t n = 0;
+  int i = 0;
 
+  token = malloc(sizeof(char *) * 1024);
+  if (token == NULL)
+	  exit(99);
 
   /* tokenizee the input */
-  token = strtok(cmd, delim);
-  while (token != NULL)
+  token[i] = strtok(cmd, delim);
+  i++;
+
+  while (token[i] != NULL)
     {
-      n = strlen(token) + 1;
+      n = strlen(token[i]) + 1;
       char *buf = malloc(n);
       if (buf == NULL)
 	{
 	  perror("malloc error");
-	  return -1;
+	  exit(98);
 	}
       /* using stringcopy to copy the input */
-      strcpy(buf, token);
+      strcpy(buf, token[i]);
       free(buf);
-      token = strtok(NULL, delim); /* get next token */
+      
+      /* get next token */
+      i++;
     }
-  return (0);
+  return (token);
 }
