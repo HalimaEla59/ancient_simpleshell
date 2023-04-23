@@ -10,7 +10,7 @@
 int equals(char *str1, char *str2)
 {
 	int i = 0;
-	
+
 	while (str1[i] != '\0' && str2[i] != '\0')
 	{
 		if (str1[i] != str2[i])
@@ -80,5 +80,5 @@ char **get_path(char **environ)
 	path = getenvv(environ, "PATH"); /* works like getenv() */
 	token = tokenize(path);
 
-	return(token);
+	return (token);
 }
