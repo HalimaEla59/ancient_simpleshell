@@ -10,7 +10,7 @@ int tokenize(char *cmd, char **tokens)
 char *token;
 char *delim = " \t\n";
 int tok_cnt = 0;
- char *token = strtok(cmd, delim);
+char *token = strtok(cmd, delim);
 /* tokenizee the input */
 while (token != NULL && tok_cnt < MAX_ARGS)
 {
