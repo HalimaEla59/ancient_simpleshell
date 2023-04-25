@@ -20,5 +20,8 @@ char *check_eq(char *str);
 int equals(char *str1, char *str2);
 char *getenvv(char **environ, char *name);
 char **get_path(char **environ);
+/* other used functions */
+int _putchar(char c);
+int _strlen(char *s);
 
 #endif
