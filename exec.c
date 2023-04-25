@@ -5,29 +5,28 @@
  * @tok_cnt: number of elements in array tokens
  * Return: this is a void function
  */
-
 /* void exec_cmd(char **tokens, int tok_cnt)  */
-void exec_cmd(char **tokens) /* we didn't use int tok_cnt */
+void exec_cmd(char **tokens, int tok_cnt)
 {
-  pid_t pid = fork();/* initialize new process */
-  if (pid == 0)
-    {
-      /*Start child process */
-      char *envp[] = {NULL};
-      if (execve(tokens[0], tokens, envp) == -1)
-	{
-	  perror("Error executing command");
-	}
-      exit(EXIT_FAILURE);
-    }
-  else if (pid < 0)
-    {
-      /*When procees fail to start */
-      perror("Error starting process");
-    }
-  else
-    {
-      /* Parent Process */
-      waitpid(pid, NULL, 0);
-    }
+pid_t pid = fork();/* initialize new process */
+if (pid == 0)
+{
+/*Start child process */
+char *envp[] = {NULL};
+if (execve(tokens[0], tokens, envp) == -1)
+{
+perror("Error executing command");
+}
+exit(EXIT_FAILURE);
+}
+else if (pid < 0)
+{
+/*When procees fail to start */
+perror("Error starting process");
+}
+else
+{
+/* Parent Process */
+waitpid(pid, NULL, 0);
+}
 }
