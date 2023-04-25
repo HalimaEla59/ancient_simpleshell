@@ -13,8 +13,9 @@
 
 char get_cmd(void);
 void exec_cmd(char **tokens, int tok_cnt);
-/* get_path.c functions */
 int tokenize(char *cmd, char **tokens);
+/* get_path functions */
+char **tokenize2(char *path);
 char *check_eq(char *str);
 int equals(char *str1, char *str2);
 char *getenvv(char **environ, char *name);
