@@ -1,11 +1,12 @@
 #include "shell.h"
 /**
  * main - entry point
+ * @argc: argc unused
+ * @environ: environ variable
  * Return: 0 on success
  */
-int main(void)
+int main(int argc __attribute__ ((unused)), char **environ)
 {
-extern char **environ;
 char *input = NULL;
 char **tokens;
 int tok_cnt;

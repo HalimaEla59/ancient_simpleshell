@@ -2,7 +2,7 @@
 /**
  * exec_cmd - function to execute commands
  * @tokens: array of split input
- * @tok_cnt: number of elements in array tokens
+ * tok_cnt: number of elements in array tokens
  * Return: this is a void function
  */
 /* void exec_cmd(char **tokens, int tok_cnt)  */
