@@ -12,6 +12,11 @@ while (1)
 {
 /*Grab input */
 input = get_cmd();
+if (input == NULL)
+{
+printf("\n");
+break;
+}
 /* Let's tokenize the input */
 tok_cnt = tokenize(input, tokens);
 /* Execute command */
