@@ -12,7 +12,7 @@
 #define MAX_LEGTH 100
 
 char *get_cmd(void);
-void exec_cmd(char **tokens, int tok_cnt);
+void exec_cmd(char **tokens);
 int tokenize(char *cmd, char **tokens);
 /* get_path functions */
 char **tokenize2(char *path);

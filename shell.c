@@ -5,6 +5,7 @@
  */
 int main(void)
 {
+extern char **environ;
 char *input = NULL;
 char **tokens;
 int tok_cnt;
