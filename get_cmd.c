@@ -3,7 +3,7 @@
  * get_cmd - Function to read command
  * Return: input from user
  */
-char get_cmd(void)
+char *get_cmd(void)
 {
   size_t n = 0;
   char *cmd = NULL;

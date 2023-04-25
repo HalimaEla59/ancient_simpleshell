@@ -5,14 +5,16 @@
  * @tok_cnt: number of elements in array tokens
  * Return: this is a void function
  */
-void exec_cmd(char **tokens, int tok_cnt)
+
+/* void exec_cmd(char **tokens, int tok_cnt)  */
+void exec_cmd(char **tokens) /* we didn't use int tok_cnt */
 {
   pid_t pid = fork();/* initialize new process */
   if (pid == 0)
     {
       /*Start child process */
       char *envp[] = {NULL};
-      if (execve(token[0], tokens, envp) == -1)
+      if (execve(tokens[0], tokens, envp) == -1)
 	{
 	  perror("Error executing command");
 	}

@@ -11,7 +11,7 @@ char *token;
 char *delim = " \t\n";
 int tok_cnt = 0;
 /* tokenizee the input */
-while (token[i] != NULL && tok_cnt < MAX_ARGS)
+while (token != NULL && tok_cnt < MAX_ARGS)
 {
 tokens[tok_cnt++] = token;
 token = strtok(NULL, delim);
