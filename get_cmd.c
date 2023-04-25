@@ -7,8 +7,19 @@ char *get_cmd(void)
 {
 size_t n = 0;
 char *cmd = NULL;
-ssize_t read;
-printf("$ ");
-getline(&cmd, &n, stdin);
+int len;
+/*ssize_t read;*/
+
+_putchar('$');
+_putchar(' ');
+
+if (getline(&cmd, &n, stdin) == -1)
+{
+	free(cmd);
+	exit(-1);
+}
+len = _strlen(cmd);
+cmd[len - 1] = '\0';
+
 return (cmd);
 }
