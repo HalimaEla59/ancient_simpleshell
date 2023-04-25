@@ -6,9 +6,10 @@
  * Return: this is a void function
  */
 /* void exec_cmd(char **tokens, int tok_cnt)  */
-void exec_cmd(char **tokens, int tok_cnt)
+void exec_cmd(char **tokens)
 {
 pid_t pid = fork();/* initialize new process */
+
 if (pid == 0)
 {
 /*Start child process */
