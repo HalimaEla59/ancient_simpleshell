@@ -1,40 +1,20 @@
 #include "shell.h"
-
 /**
  * tokenize - function that splits the received command to arguments
  * @cmd: input received from get_cmd function
- * Return: tokens
+ * @tokens: array to hold the input after spliting
+ * Return: number of tokens obtained after splitting
  */
-char **tokenize(char *cmd)
+int tokenize(char *cmd, char **tokens)
 {
-char **token;
+char *token;
 char *delim = " \t\n";
-char *buf;
-size_t n = 0;
-int i = 0;
-
-token = malloc(sizeof(char *) * 1024);
-if (token == NULL)
-	exit(99);
-
+int tok_cnt = 0;
 /* tokenizee the input */
-token[i] = strtok(cmd, delim);
-i++;
-
-while (token[i] != NULL)
+while (token[i] != NULL && tok_cnt < MAX_ARGS)
 {
-	n = strlen(token[i]) + 1;
-	buf = malloc(n);
-	if (buf == NULL)
-	{
-		perror("malloc error");
-		exit(98);
-	}
-	/* using stringcopy to copy the input */
-	strcpy(buf, token[i]);
-	free(buf);
-	/* get next token */
-	i++;
+tokens[tok_cnt++] = token;
+token = strtok(NULL, delim);
 }
-return (token);
+return (tok_cnt);
 }

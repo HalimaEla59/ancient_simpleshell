@@ -12,9 +12,9 @@
 #define MAX_LEGTH 100
 
 char get_cmd(void);
-
+void exec_cmd(char **tokens, int tok_cnt);
 /* get_path.c functions */
-int tokenize(char *cmd char **tokens);
+int tokenize(char *cmd, char **tokens);
 char *check_eq(char *str);
 int equals(char *str1, char *str2);
 char *getenvv(char **environ, char *name);
