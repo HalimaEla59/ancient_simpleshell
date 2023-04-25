@@ -19,3 +19,28 @@ token = strtok(NULL, delim);
 }
 return (tok_cnt);
 }
+
+/**
+ * tokenize2 - splits the recieved path
+ * @path: string
+ * Return: char double pointer token
+ */
+char **tokenize2(char *path)
+{
+	char **token;
+	char *delimiter;
+	int i = 1;
+
+	delimiter = ":";
+	token = malloc(sizeof(char *) * 1024);
+	if (token == NULL)
+		exit(99);
+
+	token[0] = strtok(path, delimiter);
+	while (token[i] != NULL)
+	{
+		token[i] = strtok(NULL, delimiter);
+		i++;
+	}
+	return (token);
+}
