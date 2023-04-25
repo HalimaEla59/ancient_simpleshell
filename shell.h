@@ -8,11 +8,13 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-char get_cmd(char *cmd);
-int my_shell(void);
+#define MAX_ARGS 10
+#define MAX_LEGTH 100
+
+char get_cmd(void);
 
 /* get_path.c functions */
-char **tokenize(char *cmd);
+int tokenize(char *cmd char **tokens);
 char *check_eq(char *str);
 int equals(char *str1, char *str2);
 char *getenvv(char **environ, char *name);

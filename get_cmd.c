@@ -14,6 +14,5 @@ char get_cmd(void)
     {
       return (-1);
     }
-  free(cmd);
-  return (input);
+  return (cmd);
 }
