@@ -35,8 +35,6 @@ if (cmd == NULL)
 free(input);
 free(argv);
 free(cmd);
-free(tokens);
 }
-
 return (0);
 }

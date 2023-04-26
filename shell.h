@@ -29,6 +29,13 @@ int _putchar(char c);
 int _strlen(char *s);
 char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
+
+/* functions of the new main */
+char **parse_input(char *input);
+void print_prompt();
+void execute_command(char *command, char **args, char **envp);
+void handle_input(char *input, char **envp);
 
 extern char **environ;
 
