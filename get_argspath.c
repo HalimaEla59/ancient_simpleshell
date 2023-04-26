@@ -63,6 +63,7 @@ char *get_argspath(char **args, char **tokens)
 
 
 	struct stat status;
+
 	for (i = 0; tokens[i]; i++)
 	{
 		result = malloc(60);
