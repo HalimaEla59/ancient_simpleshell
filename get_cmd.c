@@ -10,9 +10,6 @@ char *cmd = NULL;
 int len;
 /*ssize_t read;*/
 
-_putchar('$');
-_putchar(' ');
-
 if (getline(&cmd, &n, stdin) == -1)
 {
 free(cmd);

@@ -10,7 +10,7 @@
 int main(int argc __attribute__ ((unused)), char **argv, char **environ)
 {
 char *input = NULL;
-char **tokens;
+char **tokens, **env;
 char *delimiter = "\t \a\n";
 char *cmd;
 
@@ -18,8 +18,10 @@ tokens = get_path(environ);
 signal(SIGINT, SIG_IGN);
 while (1)
 {
-/*Grab input */
-input = get_cmd();
+	_putchar('$');
+	_putchar(' ');
+
+input = get_cmd(); /* grab input */
 if (input == NULL)
 {
 	_putchar('\n');
@@ -28,7 +30,14 @@ if (input == NULL)
 
 argv = tokenize2(input, delimiter);
 cmd = get_argspath(argv, tokens);
+if (_strcmp(argv[0], "exit") == 0)
+exit(0); /* exit shell */
 
+if (_strcmp(argv[0], "env") == 0)
+{
+	for (env = environ; *env != 0; env++)
+		printf("%s\n", *env); /* print env */
+}
 if (cmd == NULL)
 	exec_cmd(argv);
 
