@@ -23,6 +23,7 @@ return (tok_cnt);
 /**
  * tokenize2 - splits the recieved path
  * @path: string
+ * @delimiter: delimiter string
  * Return: char double pointer token
  */
 char **tokenize2(char *path, char *delimiter)
