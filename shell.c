@@ -6,8 +6,8 @@
  * @environ: environ variable
  * Return: 0 on success
  */
-
-int main(int argc __attribute__ ((unused)), char **argv, char **environ)
+/*int main(int argc __attribute__ ((unused)), char **argv, char **environ)*/
+int main(void)
 {
 char *input = NULL;
 char **tokens, **env;
