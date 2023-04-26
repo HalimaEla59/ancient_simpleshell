@@ -42,4 +42,24 @@
 *return (0);} */
 void tempor(void)
 {
+<<<<<<< HEAD
+=======
+	_putchar('\n');
+	break;
+}
+
+argv = tokenize2(input, delimiter);
+cmd = get_argspath(argv, tokens);
+
+if (cmd == NULL)
+	exec_cmd(argv);
+
+free(input);
+free(argv);
+free(cmd);
+free(tokens);
+}
+
+return (0);
+>>>>>>> fc8332416ad33396735e28c4d8aeae36c7323d03
 }
