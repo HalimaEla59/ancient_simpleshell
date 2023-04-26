@@ -15,7 +15,6 @@ _putchar(' ');
 
 if (getline(&cmd, &n, stdin) == -1)
 {
-	free(cmd);
 	exit(-1);
 }
 len = _strlen(cmd);
