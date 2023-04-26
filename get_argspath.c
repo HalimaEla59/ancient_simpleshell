@@ -15,8 +15,10 @@ char *_strdup(char *str)
 
 	result = malloc(_strlen(str) + 1);
 	if (result == NULL)
-		return (NULL);
-
+	  {
+	    perror("malloc");
+	    exit(EXIT_FAILURE);
+	  }
 	while (str[i] != '\0')
 	{
 		result[i] = str[i];
@@ -84,6 +86,7 @@ char *get_argspath(char **args, char **tokens)
 
 			return (result);
 			free(result);
+			  free(tmp);
 		)
 	}
 	return (NULL);
