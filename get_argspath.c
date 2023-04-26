@@ -83,8 +83,8 @@ char *get_argspath(char **args, char **tokens)
 			exec_cmd(tmp);
 
 			return (result);
-		}
-		free(result);
+			free(result);
+		)
 	}
 	return (NULL);
 }
