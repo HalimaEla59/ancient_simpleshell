@@ -2,38 +2,38 @@
 /**
  * main - entry point
  * @argc: argc unused
+ * @argv: argument array
  * @environ: environ variable
  * Return: 0 on success
  */
-int main(int argc __attribute__ ((unused)), char **environ)
+int main(int argc __attribute__ ((unused)), char **argv, char **environ)
 {
 char *input = NULL;
 char **tokens;
-int tok_cnt;
+char *delimiter = "\t \a\n";
+char *cmd;
 
 tokens = get_path(environ);
+signal(SIGINT, SIG_IGN);
 while (1)
 {
 /*Grab input */
 input = get_cmd();
-
 if (input == NULL)
 {
-_putchar('\n');
-break;
+	_putchar('\n');
+	break;
 }
 
-/* Let's tokenize the input */
-tok_cnt = tokenize(input, tokens);
-/* Execute command */
-if (tok_cnt > 0)
-{
-exec_cmd(tokens);
-}
+argv = tokenize2(input, delimiter);
+cmd = get_argspath(argv, tokens);
 
-/*free input */
+if (cmd == NULL)
+	exec_cmd(argv);
+
 free(input);
-input = NULL;
+free(argv);
+free(cmd);
 }
 
 return (0);

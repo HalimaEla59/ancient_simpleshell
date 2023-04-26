@@ -25,13 +25,11 @@ return (tok_cnt);
  * @path: string
  * Return: char double pointer token
  */
-char **tokenize2(char *path)
+char **tokenize2(char *path, char *delimiter)
 {
 	char **token;
-	char *delimiter;
 	int i = 1;
 
-	delimiter = ":";
 	token = malloc(sizeof(char *) * 1024);
 	if (token == NULL)
 		exit(99);

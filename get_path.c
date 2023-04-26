@@ -63,6 +63,6 @@ char **get_path(char **environ)
 char **token;
 char *path;
 path = getenvv(environ, "PATH"); /* works like getenv() */
-token = tokenize2(path);
+token = tokenize2(path, ":");
 return (token);
 }
