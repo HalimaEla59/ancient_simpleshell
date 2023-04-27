@@ -13,3 +13,20 @@ void free_argv(char **argv)
 		free(argv[i]);
 	free(argv);
 }
+
+/**
+ * free_list - frees list
+ * @head: head of list
+ */
+void free_list(list_path *head)
+{
+	list_path *temp;
+
+	while (head)
+	{
+		temp = head->next;
+		free(head->dir);
+		free(head);
+		head = temp;
+	}
+}

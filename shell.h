@@ -58,6 +58,7 @@ int _strcmp(char *s1, char *s2);
 void _puts(char *str);
 int _atoi(char *s);
 void free_argv(char **argv);
+void free_list(list_path *head);
 /* path.c functions */
 list_path *add_node_end(list_path **head, char *str);
 list_path *link_path(char *path);
