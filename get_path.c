@@ -28,31 +28,42 @@ while (str[i] != '=')
 i++;
 return (str + i + 1);
 }
+
 /**
- * getenvv - gets the path in the environ
- * @environ: global variable
+ * getenvv - gets the name from the environ
+ * 
  * @name: string
  * Return: string of value or NULL
  */
-char *getenvv(char **environ, char *name)
+char *getenvv(const char *name)
 {
-int i, j;
-char *N, *M;
-for (i = 0; environ[i]; i++)
-{
-N = malloc(1024);
-for (j = 0; environ[i][j] != '='; j++)
-N[j] = environ[i][j];
-if (equals(name, N))
-{
-M = check_eq(environ[i]);
-free(name);
-return (M);
+	int i, j;
+	char *result;
+
+	if (!name)
+		return (NULL);
+
+	for (i = 0; environ[i]; i++)
+	{
+		j = 0;
+		if (name[j] == environ[i][j])
+		{
+			while (name[j])
+			{
+				if (name[j] != environ[i][j])
+					break;
+				j++;
+			}
+			if (name[j] == '\0')
+			{
+				result = (environ[i] + j + 1);
+				return (result);
+			}
+		}
+	}
+	return (0);
 }
-free(name);
-}
-return (NULL);
-}
+
 /**
  * get_path - function that gets the path
  * @environ: pointer to pointer environ
@@ -62,7 +73,7 @@ char **get_path(char **environ)
 {
 char **token;
 char *path;
-path = getenvv(environ, "PATH"); /* works like getenv() */
+path = getenvv("PATH"); /* works like getenv() */
 token = tokenize2(path, ":");
 return (token);
 }

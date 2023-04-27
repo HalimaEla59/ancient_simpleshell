@@ -19,10 +19,11 @@ void exec_cmd(char **tokens);
 int tokenize(char *cmd, char **tokens);
 char *get_argspath(char **args, char **tokens);
 /* get_path functions */
-char **tokenize2(char *path, char *delimiter);
+char **tokenize2(char *s, const char *delimiter);
 char *check_eq(char *str);
 int equals(char *str1, char *str2);
-char *getenvv(char **environ, char *name);
+char *getenvv(const char *name);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **get_path(char **environ);
 /* string manipulation functions */
 int _putchar(char c);
