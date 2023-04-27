@@ -18,8 +18,8 @@ tokens = get_path(environ);
 signal(SIGINT, SIG_IGN);
 while (1)
 {
-	_putchar('$');
-	_putchar(' ');
+	/*_putchar($);*/
+	/*_putchar( );*/
 
 input = get_cmd(); /* grab input */
 if (input == NULL)
@@ -47,4 +47,4 @@ free(argv);
 free(cmd);
 }
 return (0);
-}
+i}
