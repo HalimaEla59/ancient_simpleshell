@@ -15,10 +15,10 @@ char *_strdup(char *str)
 
 	result = malloc(_strlen(str) + 1);
 	if (result == NULL)
-	  {
-	    perror("malloc");
-	    exit(EXIT_FAILURE);
-	  }
+	{
+		perror("malloc");
+		exit(EXIT_FAILURE);
+	}
 	while (str[i] != '\0')
 	{
 		result[i] = str[i];
