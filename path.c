@@ -55,3 +55,61 @@ list_path *link_path(char *path)
 	}
 	return (head);
 }
+
+/**
+ * _strcat3 - concatenates three strings
+ * @s1: first string
+ * @s2: second string
+ * @s3: third string
+ * Return: new string
+ */
+char *_strcat3(char *s1, char *s2, char *s3)
+{
+	char *newstr;
+	int len1, len2, len3;
+	int i, j;
+
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len3 = _strlen(s3);
+	newstr = malloc(len1 + len2 + len3 + 1);
+	if (!newstr)
+		return (NULL);
+
+	for (i = 0; s1[i]; i++)
+		newstr[i] = s1[i];
+	j = i;
+	for (i = 0; s2[i]; i++)
+		newstr[j + i] = s2[i];
+	j = j + i;
+	for (i = 0; s3[i]; i++)
+		newstr[j + i] = s3[i];
+	j = j + i;
+	newstr[j] = '\0';
+	return (newstr);
+}
+
+/**
+ * look_for - looks for a pathname in a filename
+ * @filename: name of file
+ * @head: head of linked list
+ * Return: NULL or pathname
+ */
+
+char *look_for(char *filename, list_path *head)
+{
+	struct stat st;
+	char *str;
+	list_path *temp = head;
+
+	while (temp)
+	{
+		str = _strcat3(temp->dir, "/", filename);
+		if (stat(str, &st) == 0)
+			return (str);
+
+		free(str);
+		temp = temp->next;
+	}
+	return (NULL);
+}

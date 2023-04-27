@@ -48,5 +48,7 @@ int _strcmp(char *s1, char *s2);
 /* path.c functions */
 list_path *add_node_end(list_path **head, char *str);
 list_path *link_path(char *path);
+char *_strcat3(char *s1, char *s2, char *s3);
+char *look_for(char *filename, list_path *head);
 
 #endif
