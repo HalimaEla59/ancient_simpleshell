@@ -64,6 +64,10 @@ list_path *link_path(char *path);
 char *_strcat3(char *s1, char *s2, char *s3);
 char *look_for(char *filename, list_path *head);
 void(*checkcmd(char **argv))(char **argv);
+/* tools */
+void sig_handler(int sig_num);
+void _isatty(void);
+void _EOF(int gl, char *buff);
 /* commands */
 void _exit(char **argv);
 void env(char **argv __attribute__ ((unused)));
