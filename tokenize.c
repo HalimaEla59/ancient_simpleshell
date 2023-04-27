@@ -21,25 +21,46 @@ return (tok_cnt);
 }
 
 /**
- * tokenize2 - splits the recieved path
- * @path: string
+ * tokenize2 - splits the recieved string
+ * @s: string
  * @delimiter: delimiter string
- * Return: char double pointer token
+ * Return: char double pointer array
  */
-char **tokenize2(char *path, char *delimiter)
+char **tokenize2(char *s, const char *delimiter)
 {
-	char **token;
-	int i = 1;
+	char **arr;
+	int i, j;
+	char *token, *tmp;
 
-	token = malloc(sizeof(char *) * 1024);
-	if (token == NULL)
-		exit(99);
-
-	token[0] = strtok(path, delimiter);
-	while (token[i] != NULL)
+	tmp = malloc(_strlen(s) + 1);
+	if (tmp == NULL)
 	{
-		token[i] = strtok(NULL, delimiter);
+		perror(getenvv("_"));
+		return (NULL);
+	}
+
+	i = 0;
+	while (s[i])
+	{
+		tmp[i] = s[i];
 		i++;
 	}
-	return (token);
+	tmp[i] = '\0';
+
+	token = strtok(tmp, delimiter);
+	arr = malloc(sizeof(char *) * 2);
+	arr[0] = _strdup(token);
+
+	i = 1;
+	j = 3;
+	while(token)
+	{
+		token = strtok(NULL, delimiter);
+		arr = _realloc(arr, (sizeof(char *) * (j - 1)), (sizeof(char *) * j));
+		arr[i] = _strdup(token);
+		i++;
+		j++;
+	}
+	free(tmp);
+	return (arr);
 }
