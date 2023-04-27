@@ -55,11 +55,17 @@ int _strlen(char *s);
 char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
+void _puts(char *str);
+int _atoi(char *s);
+void free_argv(char **argv);
 /* path.c functions */
 list_path *add_node_end(list_path **head, char *str);
 list_path *link_path(char *path);
 char *_strcat3(char *s1, char *s2, char *s3);
 char *look_for(char *filename, list_path *head);
 void(*checkcmd(char **argv))(char **argv);
+/* commands */
+void _exit(char **argv);
+void env(char **argv __attribute__ ((unused)));
 
 #endif
