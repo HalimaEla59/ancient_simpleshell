@@ -113,3 +113,36 @@ char *look_for(char *filename, list_path *head)
 	}
 	return (NULL);
 }
+
+/**
+ * checkcmd - checkes for the existance of cmd
+ * @argv: array of arguments
+ * Return: pointer to void func(char **argv)
+ */
+void(*checkcmd(char **argv))(char **argv)
+{
+	int i, j;
+
+	mycmd C[] = {
+		{"exit", _exit},
+		{"env", env},
+		{NULL, NULL}
+	};
+
+	for (i = 0; C[i].name; i++)
+	{
+		j = 0;
+		if (C[i].name[j] == argv[0][j])
+		{
+			for (j = 0, argv[0][j]; j++)
+			{
+				if (C[i].name[j] != argv[0][j])
+					break;
+			}
+			if (!argv[0][j])
+				return (C[i].func);
+		}
+	}
+	return (0);
+}
+

@@ -27,6 +27,16 @@ typedef struct list_path
 	char *dir;
 	struct list_path *next;
 } list_path;
+/**
+ * struct mycmd - pointer to func with the right command
+ * @name: command name
+ * @func: function to execute the command
+ */
+typedef struct mycmd
+{
+	char *name;
+	void (*func)(char **);
+} mycmd;
 
 char *get_cmd(void);
 void exec_cmd(char **tokens);
@@ -50,5 +60,6 @@ list_path *add_node_end(list_path **head, char *str);
 list_path *link_path(char *path);
 char *_strcat3(char *s1, char *s2, char *s3);
 char *look_for(char *filename, list_path *head);
+void(*checkcmd(char **argv))(char **argv);
 
 #endif
