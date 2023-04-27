@@ -14,6 +14,20 @@
 #define MAX_ARGS 10
 #define MAX_LEGTH 100
 
+extern char **environ;
+
+/* structs */
+/**
+ * struct list_path - PATH directories
+ * @dir: name of directories
+ * @next: pointer to next node
+ */
+typedef struct list_path
+{
+	char *dir;
+	struct list_path *next;
+} list_path;
+
 char *get_cmd(void);
 void exec_cmd(char **tokens);
 int tokenize(char *cmd, char **tokens);
@@ -31,7 +45,8 @@ int _strlen(char *s);
 char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
-
-extern char **environ;
+/* path.c functions */
+list_path *add_node_end(list_path **head, char *str);
+list_path *link_path(char *path);
 
 #endif
