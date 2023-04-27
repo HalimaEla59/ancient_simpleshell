@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * main - entry point
  * @argc: argc unused
@@ -6,12 +7,12 @@
  * @environ: environ variable
  * Return: 0 on success
  */
+
 int main(int argc __attribute__ ((unused)), char **argv, char **environ)
 {
 char *input = NULL;
-char **tokens, **env;
+char **tokens, **env, *cmd;
 char *delimiter = "\t \a\n";
-char *cmd;
 
 tokens = get_path(environ);
 signal(SIGINT, SIG_IGN);
@@ -30,8 +31,9 @@ if (input == NULL)
 argv = tokenize2(input, delimiter);
 cmd = get_argspath(argv, tokens);
 if (_strcmp(argv[0], "exit") == 0)
-exit(0); /* exit shell */
-
+{
+	exit(0); /* exit shell */
+}
 if (_strcmp(argv[0], "env") == 0)
 {
 	for (env = environ; *env != 0; env++)
