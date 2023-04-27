@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "main.h"
+#include "shell.h"
 
 /**
  * _realloc - reallocate a memo block with malloc+free
