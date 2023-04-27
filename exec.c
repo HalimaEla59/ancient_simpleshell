@@ -1,33 +1,32 @@
 #include "shell.h"
 /**
  * exec_cmd - function to execute commands
- * @tokens: array of split input
- * tok_cnt: number of elements in array tokens
+ * @tokens: array of arguments
  * Return: this is a void function
  */
-/* void exec_cmd(char **tokens, int tok_cnt)  */
+
 void exec_cmd(char **tokens)
 {
-pid_t pid = fork();/* initialize new process */
+	int pid;
+	int status;
 
-if (pid == 0)
-{
-/*Start child process */
-char *envp[] = {NULL};
-if (execve(tokens[0], tokens, envp) == -1)
-{
-perror("Error executing command");
-}
-exit(EXIT_FAILURE);
-}
-else if (pid < 0)
-{
-/*When procees fail to start */
-perror("Error starting process");
-}
-else
-{
-/* Parent Process */
-waitpid(pid, NULL, 0);
-}
+	if (!tokens || !tokens[0])
+		return;
+
+	pid = fork();
+	if (pid == 0)
+	{
+		execve(tokens[0], tokens, environ);
+		perror(tokens[0]);
+		exit(EXIT_FAILURE);
+	}
+	if (pid == -1)
+	{
+		perror(getenvv("_"));
+	}
+	else
+	{
+		/* Parent Process */
+		wait(&status); /* waitpid(pid, NULL, 0) */
+	}
 }
