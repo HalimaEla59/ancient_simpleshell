@@ -53,7 +53,7 @@ char **tokenize2(char *s, const char *delimiter)
 
 	i = 1;
 	j = 3;
-	while(token)
+	while (token)
 	{
 		token = strtok(NULL, delimiter);
 		arr = _realloc(arr, (sizeof(char *) * (j - 1)), (sizeof(char *) * j));

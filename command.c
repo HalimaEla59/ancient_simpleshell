@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * _exit - exits the shell
+ * _exits - exits the shell
  * @argv: array of arguments
  */
 
-void _exit(char **argv)
+void _exits(char **argv)
 {
 	int i, n;
 

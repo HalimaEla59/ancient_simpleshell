@@ -124,7 +124,7 @@ void(*checkcmd(char **argv))(char **argv)
 	int i, j;
 
 	mycmd C[] = {
-		{"exit", _exit},
+		{"exit", _exits},
 		{"env", env},
 		{NULL, NULL}
 	};
@@ -134,7 +134,7 @@ void(*checkcmd(char **argv))(char **argv)
 		j = 0;
 		if (C[i].name[j] == argv[0][j])
 		{
-			for (j = 0, argv[0][j]; j++)
+			for (j = 0; argv[0][j]; j++)
 			{
 				if (C[i].name[j] != argv[0][j])
 					break;

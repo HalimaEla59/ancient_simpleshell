@@ -31,7 +31,6 @@ return (str + i + 1);
 
 /**
  * getenvv - gets the name from the environ
- * 
  * @name: string
  * Return: string of value or NULL
  */
@@ -69,7 +68,7 @@ char *getenvv(const char *name)
  * @environ: pointer to pointer environ
  * Return: the path
  */
-char **get_path(char **environ)
+char **get_path(char **environ __attribute__ ((unused)))
 {
 char **token;
 char *path;

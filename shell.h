@@ -70,7 +70,7 @@ void sig_handler(int sig_num);
 void _isatty(void);
 void _EOF(int gl, char *buff);
 /* commands */
-void _exit(char **argv);
+void _exits(char **argv);
 void env(char **argv __attribute__ ((unused)));
 
 #endif

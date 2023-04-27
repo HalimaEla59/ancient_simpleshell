@@ -5,12 +5,14 @@
  * @ptr: pointer to the previous memory allocated
  * @old_size: ptr size bytes
  * @new_size: size of new memo block
+ * Return: NULL or new dest
  */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	unsigned int i;
-	void *dest;
+	char *dest;
+	char *src;
 
 	if (new_size == old_size)
 		return (ptr);
@@ -18,8 +20,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (ptr == NULL)
 	{
 		ptr = malloc(new_size);
-		if (ptr == NULL)
-			return (NULL);
 		return (ptr);
 	}
 
@@ -30,12 +30,23 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 
 	dest = malloc(new_size);
+	src = ptr;
 	if (dest == NULL)
 		return (NULL);
 
-	for (i = 0; i < old_size; i++)
-		dest[i] = ptr[i];
-
-	free(ptr);
+	if (new_size > old_size)
+	{
+		for (i = 0; i < old_size; i++)
+			dest[i] = src[i];
+		free(ptr);
+		for (i = old_size; i < new_size; i++)
+			dest[i] = '\0';
+	}
+	if (new_size < old_size)
+	{
+		for (i = 0; i < new_size; i++)
+			dest[i] = src[i];
+		free(ptr);
+	}
 	return (dest);
 }

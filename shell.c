@@ -2,14 +2,12 @@
 
 /**
  * main - entry point
- * 
  * Return: 0 on success
  */
 
 int main(void)
 {
-	char *path, *val, *buff = NULL;
-	char **argv;
+	char **argv, *path, *val, *buff = NULL;
 	size_t size = 0;
 	ssize_t gl = 0;
 	list_path *head = '\0';
@@ -19,7 +17,7 @@ int main(void)
 	while (gl != EOF)
 	{
 		_isatty();
-		gl = getline(&buf, &size, stdin);
+		gl = getline(&buff, &size, stdin);
 		_EOF(gl, buff);
 		argv = tokenize2(buff, " \n");
 		if (!argv || !argv[0])
