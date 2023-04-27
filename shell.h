@@ -33,7 +33,7 @@ int _strcmp(char *s1, char *s2);
 
 /* functions of the new main */
 char **parse_input(char *input);
-void print_prompt();
+void print_prompt(void);
 void execute_command(char *command, char **args, char **envp);
 void handle_input(char *input, char **envp);
 
