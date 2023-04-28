@@ -8,10 +8,11 @@
 void exec_cmd(char **tokens)
 {
 	int pid, status;
+
 	if (!tokens || !tokens[0])
-	  {
-	    return;
-	  }
+	{
+		return;
+	}
 
 	pid = fork();
 	if (pid == 0)
