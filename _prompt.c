@@ -4,5 +4,5 @@
  */
 void _prompt(void)
 {
-  _putchar("$ ");
+  _puts("$ ");
 }

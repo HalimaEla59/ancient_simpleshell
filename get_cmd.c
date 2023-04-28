@@ -4,7 +4,7 @@
  *@bufsize: this is a pointer to the input
  * Return: input from user
  */
-char *get_cmd(char *cmd)
+char *get_cmd(void)
 {
 size_t n = 0;
 char *cmd = NULL;
