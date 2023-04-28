@@ -126,6 +126,8 @@ void(*checkcmd(char **argv))(char **argv)
 	mycmd C[] = {
 		{"exit", _exits},
 		{"env", env},
+		{"setenv", setenvv},
+		{"unsetenv", unsetenvv},
 		{NULL, NULL}
 	};
 

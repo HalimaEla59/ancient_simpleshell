@@ -73,5 +73,7 @@ void _EOF(int gl, char *buff);
 /* commands */
 void _exits(char **argv);
 void env(char **argv __attribute__ ((unused)));
+void setenvv(char **argv);
+void unsetenvv(char **argv);
 
 #endif
