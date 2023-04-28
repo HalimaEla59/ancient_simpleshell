@@ -5,11 +5,11 @@
  * Return: this is a void function
  */
 
-void exec_cmd(char **args)
+void exec_cmd(char **tokens)
 {
 	pid_t pid;
 	int status;
-	if (args[0] == NULL)
+	if (tokens[0] == NULL)
 	  {
 	    return (0);
 	  }
@@ -17,8 +17,8 @@ void exec_cmd(char **args)
 	pid = fork();
 	if (pid == 0)
 	{
-		execve(args[0], args, environ);
-		perror(args[0]);
+		execve(tokens[0], tokens, environ);
+		perror(tokens[0]);
 		exit(EXIT_FAILURE);
 	}
 	if (pid == -1)

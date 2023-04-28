@@ -4,7 +4,7 @@
  * main - entry point
  * Return: 0 on success
  */
-int main(int ac, char **av, char **env)
+/*int main(int ac, char **av, char **env)
 {
   char *input = NULL;
   char **args = NULL;
@@ -13,9 +13,9 @@ int main(int ac, char **av, char **env)
   while(1)
     {
       /*display prompt */
-      _prompt();
+      /*     _prompt();
       /*Get input */
-      input = get_cmd();
+/*    input = get_cmd();
       if (cmd == NULL)
 	{
 	  break;
@@ -24,8 +24,8 @@ int main(int ac, char **av, char **env)
       /*tokenize*/
       /*   tok_cnt = tokenize(input, &tokens);
  */     /*Execute command */
-      if (args == NULL || args[0] == NULL)
-	{
+/*if (args == NULL || args[0] == NULL)
+		{
 	  free(args);
 	  continue;
 	}
@@ -36,11 +36,11 @@ int main(int ac, char **av, char **env)
 	}
 	status = exec_cmd(args);
       /* free input */
-      free(args);
+      /*    free(args);
     }
   return (0);
-}
-/*int main(void)
+}*/
+int main(void)
 {
 	char **argv, *path, *val, *buff = NULL;
 	size_t size = 0;
@@ -82,4 +82,4 @@ int main(int ac, char **av, char **env)
 	free_argv(argv);
 	free(buff);
 	return (0);
-}*/
+}
