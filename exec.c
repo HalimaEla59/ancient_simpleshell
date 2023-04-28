@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
  * exec_cmd - function to execute commands
- * @args: array of arguments
+ * @tokens: array of arguments
  * Return: this is a void function
  */
 

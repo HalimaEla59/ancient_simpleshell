@@ -1,7 +1,6 @@
 #include "shell.h"
 /**
  * get_cmd - Function to read command
- *@bufsize: this is a pointer to the input
  * Return: input from user
  */
 char *get_cmd(void)
