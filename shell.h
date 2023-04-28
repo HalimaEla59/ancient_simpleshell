@@ -13,7 +13,7 @@
 
 #define MAX_ARGS 64
 #define MAX_LEGTH 100
-#define DELIMETERS (" \t\n\a\r");
+
 extern char **environ;
 
 void _prompt(void);
