@@ -8,12 +8,15 @@ char *get_cmd(void)
 size_t n = 0;
 char *cmd = NULL;
 int len;
+char *read;
 /*ssize_t read;*/
-
-if (getline(&cmd, &n, stdin) == -1)
+_putchar("$ ");
+ read = getline(cmd, &n, stdin);
+if (read == -1)
 {
+perror("Could not read input");
 free(cmd);
-	exit(-1);
+exit(-1);
 }
 len = _strlen(cmd);
 cmd[len - 1] = '\0';
