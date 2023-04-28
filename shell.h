@@ -11,11 +11,12 @@
 #include <limits.h>
 #include <signal.h>
 
-#define MAX_ARGS 10
+#define MAX_ARGS 64
 #define MAX_LEGTH 100
-
+#define DELIMETERS (" \t\n\a\r");
 extern char **environ;
 
+void _prompt(void);
 /* structs */
 /**
  * struct list_path - PATH directories
