@@ -1,23 +1,24 @@
 #include "shell.h"
 /**
  * exec_cmd - function to execute commands
- * @tokens: array of arguments
+ * @args: array of arguments
  * Return: this is a void function
  */
 
-void exec_cmd(char **tokens)
+void exec_cmd(char **args)
 {
-	int pid;
+	pid_t pid;
 	int status;
-
-	if (!tokens || !tokens[0])
-		return;
+	if (args[0] == NULL)
+	  {
+	    return (0);
+	  }
 
 	pid = fork();
 	if (pid == 0)
 	{
-		execve(tokens[0], tokens, environ);
-		perror(tokens[0]);
+		execve(args[0], args, environ);
+		perror(args[0]);
 		exit(EXIT_FAILURE);
 	}
 	if (pid == -1)
@@ -27,6 +28,6 @@ void exec_cmd(char **tokens)
 	else
 	{
 		/* Parent Process */
-		wait(&status); /* waitpid(pid, NULL, 0) */
+	  wait(&status); /* waitpid(pid, NULL, 0) */
 	}
 }
