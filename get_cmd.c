@@ -10,7 +10,7 @@ size_t n = 0;
 char *cmd = NULL;
 int len;
 ssize_t read;
-read = getline(&cmd, bufsize, stdin);
+read = getline(&cmd, &n, stdin);
 if (read == -1)
 {
 perror("Could not read input");
