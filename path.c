@@ -37,7 +37,6 @@ list_path *add_node_end(list_path **head, char *str)
  * @path: string
  * Return: pointer to the linked list
  */
-
 list_path *link_path(char *path)
 {
 	list_path *head;
