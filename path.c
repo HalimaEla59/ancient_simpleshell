@@ -6,7 +6,6 @@
  * @str: string to add
  * Return: @ to head of new list
  */
-
 list_path *add_node_end(list_path **head, char *str)
 {
 	list_path *temp;
